@@ -4,13 +4,33 @@ const Course = require('../models/Course');
 
 /**
  * @route   GET /api/courses
- * @desc    Get all courses
+ * @desc    Get all courses with optional filtering by category, search, and featured flag
  */
 router.get('/', async (req, res) => {
   try {
-    const courses = await Course.find();
+    const query = {};
+
+    // Filter by search term if provided (searches in the title field)
+    if (req.query.search) {
+      query.title = { $regex: req.query.search, $options: 'i' };
+    }
+
+    // Filter by category if provided
+    if (req.query.category) {
+      query.category = req.query.category;
+    }
+
+    // Filter by featured flag if provided
+    if (req.query.featured === 'true') {
+      query.featured = true;
+    }
+
+    // Optionally, you could add sorting here based on query.sort
+
+    const courses = await Course.find(query);
     res.json(courses);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -79,4 +99,3 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
- 

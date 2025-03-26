@@ -11,8 +11,9 @@ router.get('/', async (req, res) => {
     if (req.query.category) {
       query.category = req.query.category;
     }
+    // Use 'isFeatured' to match your schema
     if (req.query.featured === 'true') {
-      query.featured = true;
+      query.isFeatured = true;
     }
     // Optionally add sorting logic based on req.query.sort
 
@@ -23,6 +24,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 router.get('/:id', async (req, res) => {
   try {

@@ -8,7 +8,8 @@ const CourseSchema = new mongoose.Schema(
     instructor: { type: String, required: true },
     category: { type: String, required: true }, // e.g., "web", "mobile", "data", etc.
     icon: { type: String }, // URL or path to a language or course icon/logo
-    image: { type: String } // URL or path to a banner/cover image
+    image: { type: String }, // URL or path to a banner/cover image
+    isFeatured: { type: Boolean, default: false }
   },
   { timestamps: true }
 );

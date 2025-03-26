@@ -14,7 +14,9 @@ const sampleCourses = [
     instructor: "Jane Doe",
     category: "web",
     icon: "/icons/html-css.png", // Place this image in public/icons folder
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_21_51-am.png"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_21_51-am.png",
+    isFeatured: true
+
   },
   {
     title: "JavaScript Essentials",
@@ -24,7 +26,8 @@ const sampleCourses = [
     instructor: "John Smith",
     category: "web",
     icon: "/icons/javascript.png",
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_24_56-am.png"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_24_56-am.png",
+    isFeatured: true
   },
   {
     title: "React for Beginners",
@@ -34,7 +37,8 @@ const sampleCourses = [
     instructor: "Alice Johnson",
     category: "web",
     icon: "/icons/react.png",
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_28_34-am.png"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_28_34-am.png",
+    isFeatured: true
   },
 
   // Mobile Development Courses

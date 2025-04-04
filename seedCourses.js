@@ -14,7 +14,7 @@ const sampleCourses = [
     instructor: "Jane Doe",
     category: "web",
     icon: "/icons/html-css.png", // Place this image in public/icons folder
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_21_51-am.png",
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_15_15-am.png",
     isFeatured: true
 
   },
@@ -26,7 +26,7 @@ const sampleCourses = [
     instructor: "John Smith",
     category: "web",
     icon: "/icons/javascript.png",
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_24_56-am.png",
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_21_39-am.png",
     isFeatured: true
   },
   {
@@ -37,7 +37,7 @@ const sampleCourses = [
     instructor: "Alice Johnson",
     category: "web",
     icon: "/icons/react.png",
-    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/03/chatgpt-image-mar-26-2025-02_28_34-am.png",
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_24_23-am.png",
     isFeatured: true
   },
 
@@ -50,7 +50,7 @@ const sampleCourses = [
     instructor: "Michael Brown",
     category: "mobile",
     icon: "/icons/mobile.png",
-    image: "https://via.placeholder.com/400x300"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_28_33-am.png"
   },
   {
     title: "Advanced Android Development",
@@ -60,7 +60,7 @@ const sampleCourses = [
     instructor: "Sarah Lee",
     category: "mobile",
     icon: "/icons/android.png",
-    image: "https://via.placeholder.com/400x300"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_40_24-am.png"
   },
   {
     title: "iOS Development with Swift",
@@ -70,7 +70,7 @@ const sampleCourses = [
     instructor: "David Kim",
     category: "mobile",
     icon: "/icons/ios.png",
-    image: "https://via.placeholder.com/400x300"
+    image: "https://linknagar.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-5-2025-12_36_56-am.png"
   },
 
   // Data Science Courses

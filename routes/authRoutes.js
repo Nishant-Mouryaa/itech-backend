@@ -12,24 +12,44 @@ const JWT_SECRET = process.env.JWT_SECRET || 'secretkey';
  */
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    // Check if user exists
-    let user = await User.findOne({ email });
-    if (user)
-      return res.status(400).json({ message: 'User already exists' });
+    const { name, email, password, role } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    user = new User({ name, email, password: hashedPassword, role: 'user' });
-    await user.save();
+    // 1. Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email already in use' });
+    }
 
+    // 2. Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // 3. Create new user
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+      role: role || 'student',
+      createdAt: new Date()
+    });
+
+    // 4. Save user to database
+    const savedUser = await newUser.save();
+
+    // 5. Create JWT token (auto-login after registration)
     const token = jwt.sign(
-      { id: user._id, role: user.role },
-      JWT_SECRET,
-      { expiresIn: '1d' }
+      { userId: savedUser._id, role: savedUser.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
     );
-    res.json({ token });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+
+    // 6. Return token and user data (without password)
+    const userData = { ...savedUser._doc };
+    delete userData.password;
+
+    res.status(201).json({ token, user: userData });
+  } catch (error) {
+    res.status(500).json({ message: 'Registration failed', error: error.message });
   }
 });
 
